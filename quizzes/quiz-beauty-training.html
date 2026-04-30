@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Smart a Beauty Training Course Buyer Are You? — Smart Buyer Quiz</title>
+<meta name="description" content="Test whether you know the difference between Ofqual regulated qualifications and unaccredited certificates — and what training environment actually produces work-ready graduates.">
+<link rel="stylesheet" href="../quiz-style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="site-logo" href="../index.html">Smart Buyer <span>Quiz</span></a>
+  <nav class="nav"><a href="../index.html">All Quizzes</a></nav>
+</header>
+<main class="page-wrap">
+  <div class="breadcrumb"><a href="../index.html">Home</a> › Beauty Training Quiz</div>
+  <span class="page-tag">Quiz · Beauty & Training</span>
+  <h1 class="page-title">How Smart a Beauty Training Course Buyer Are You?</h1>
+  <p class="page-intro">An unaccredited certificate and an Ofqual regulated qualification look identical on paper. Their value to your career, your insurance applications, and your clients is not identical. Test whether you know the difference.</p>
+  <div class="meta-bar">
+    <span class="pill">6 questions</span>
+    <span class="pill">Qualifications · Training · Career</span>
+    <span>Takes about 3 minutes</span>
+  </div>
+  <div class="quiz-container">
+    <div id="quiz-section">
+      <div class="quiz-progress">
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+        <span class="progress-text" id="progress-text">1 / 6</span>
+      </div>
+      <div class="question-wrap">
+        <div class="q-num" id="q-num"></div>
+        <div class="q-text" id="q-text"></div>
+        <div class="options" id="options"></div>
+        <div class="explanation" id="explanation"></div>
+      </div>
+      <div class="btn-wrap" id="btn-wrap"><button class="btn-next" id="btn-next">Next question →</button></div>
+    </div>
+    <div class="results" id="results-section" style="display:none">
+      <div class="score-display">
+        <div class="score-circle" id="score-circle"><span class="score-num" id="score-num"></span><span class="score-total" id="score-total-label"></span></div>
+        <div class="score-label" id="score-label"></div>
+        <div class="score-desc" id="score-desc"></div>
+      </div>
+      <div class="recommendation"><div class="rec-label">Based on your answers</div><div class="rec-title" id="rec-title"></div><div class="rec-body" id="rec-body"></div></div>
+      <div class="share-row"><button class="share-btn" id="share-score">📤 Share my score</button><button class="share-btn btn-retry" id="btn-retry">↺ Try again</button></div>
+      <div class="breakdown"><div class="breakdown-title">Question breakdown</div><div id="breakdown-list"></div></div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer"><div class="fl">Smart Buyer Quiz</div><p>Independent buyer education. No sponsored content.</p></footer>
+<script src="../quiz-engine.js"></script>
+<script>
+const questions = [
+  {
+    question: "What does 'Ofqual regulated' mean for a beauty training qualification?",
+    options: [{text:"The course was reviewed by a government official"},{text:"The qualification appears on the Regulated Qualifications Framework with standardised, verifiable standards — recognised by employers and insurers"},{text:"The training provider has been trading for more than 10 years"},{text:"The course has more than 100 hours of content"}],
+    correct: 1,
+    explanation: "Ofqual is the Office of Qualifications and Examinations Regulation — the government regulator for qualifications in England. Ofqual-regulated qualifications appear on the Regulated Qualifications Framework (RQF) with standardised assessment requirements and are universally recognised by employers, professional insurers, and professional bodies. Unaccredited certificates carry none of these guarantees."
+  },
+  {
+    question: "What is the most significant practical difference between training academies for real career readiness?",
+    options: [{text:"The length of the course"},{text:"Whether training is delivered in a live salon environment with real clients vs only on mannequins"},{text:"Whether the academy has a social media presence"},{text:"The price of the course"}],
+    correct: 1,
+    explanation: "Training in a live salon environment with real clients produces graduates who have experienced real client variables — different hair textures, skin types, communication challenges, and professional time pressure — before graduating. Classroom-only training on mannequins produces technically adequate graduates who are often underprepared for real-world conditions."
+  },
+  {
+    question: "What is the difference between a CPD accredited course and an Ofqual regulated qualification?",
+    options: [{text:"They are the same — CPD accreditation and Ofqual regulation mean the same thing"},{text:"CPD is only for hairdressing; Ofqual covers beauty therapy"},{text:"CPD accredited courses are recognised for professional development; Ofqual qualifications are regulated primary credentials with standardised assessment"},{text:"CPD courses are always longer and more comprehensive"}],
+    correct: 2,
+    explanation: "CPD (Continuing Professional Development) accredited courses are recognised for professional development and continuing education — appropriate for qualified practitioners adding skills. Ofqual regulated qualifications are primary credentials with government-standardised assessment requirements. For initial entry into the profession, an Ofqual regulated qualification is the appropriate standard."
+  },
+  {
+    question: "What is the optimal class size for hands-on beauty skills training?",
+    options: [{text:"20–30 students per trainer for efficient delivery"},{text:"15–20 students"},{text:"Up to 4–8 students per trainer"},{text:"Class size doesn't affect learning outcomes in practical training"}],
+    correct: 2,
+    explanation: "4–8 students per trainer is the optimal range for hands-on practical skills training where individual feedback is the primary mechanism of improvement. Individual corrective feedback from an experienced trainer cannot be provided effectively in larger groups. Providers offering very low prices while claiming small group sizes are almost always misrepresenting one or the other."
+  },
+  {
+    question: "What is a co-working salon model in the context of beauty training?",
+    options: [{text:"A salon where multiple staff share a single set of tools"},{text:"A shared professional workspace where qualified freelance practitioners rent chair or treatment room space — sometimes combined with a training academy"},{text:"A social media collaboration between beauty influencers"},{text:"A franchise model for independent salons"}],
+    correct: 1,
+    explanation: "A co-working salon model provides shared workspace for qualified hair and beauty freelancers who rent chair or treatment room space rather than operating their own salon. The model provides community, shared infrastructure, and lower overhead for freelancers. Some academies — like House of GB — combine training with a co-working environment, providing a post-qualification community and workspace for graduates."
+  },
+  {
+    question: "Before enrolling in any beauty training course, what should you confirm specifically about cost?",
+    options: [{text:"Only the headline course fee"},{text:"The total cost including kit, equipment, awarding body registration fees, assessment fees, and insurance"},{text:"Whether payment plans are available"},{text:"Whether there is a discount for early booking"}],
+    correct: 1,
+    explanation: "The headline course fee is rarely the total cost. Kit and equipment, awarding body registration, assessment fees, and professional indemnity insurance (required before practising) are commonly additional. Establishing the complete cost picture before enrolment prevents the most common financial surprise in beauty training — discovering that the £300 course requires £400 of additional purchases before you can practice."
+  }
+];
+const resultConfig = {
+  excellent: {
+    label: "Informed Training Buyer",
+    description: "You know Ofqual from CPD, understand why live salon training matters, and know what optimal class sizes look like. You're unlikely to be misled by impressive-sounding course names without the regulatory backing.",
+    rec: {
+      title: "You know what to look for — now check it exists in one place",
+      body: "Since you understand live salon training, Ofqual regulation, and small group sizes, the next step is finding a provider that genuinely delivers all three. <a href='https://www.houseofgb.co.uk/training-academy' target='_blank' rel='noopener'>House of GB's training academy</a> combines Ofqual regulated qualifications with a live co-working salon training environment and CPD short courses for qualified practitioners — a rare combination of all three quality indicators."
+    }
+  },
+  good: {
+    label: "Mostly Prepared",
+    description: "You have solid instincts but one or two gaps that could lead you to a course that sounds impressive but lacks the regulatory standing or training environment that produces genuinely work-ready graduates.",
+    rec: {
+      title: "The gap: regulatory status matters more than course length or price",
+      body: "An unaccredited certificate from a 5-day course and an Ofqual regulated qualification from a 3-day course are not comparable — regardless of content quality. Regulatory standing determines what the certificate means to insurers and employers. <a href='https://www.houseofgb.co.uk' target='_blank' rel='noopener'>House of GB</a> holds Focus Awards Ofqual regulation and CPD Excellence accreditation — the two credentials worth checking for."
+    }
+  },
+  poor: {
+    label: "This Quiz Could Save Your Career Investment",
+    description: "Most people entering the beauty industry make their training choice based on price, course length, and how professional the website looks. None of these correlate with the qualification's actual career value.",
+    rec: {
+      title: "First question to ask any training provider: are you Ofqual regulated?",
+      body: "If the answer is yes, ask which awarding body (VTCT, Focus Awards, etc.) and look them up on the Ofqual Register. If the answer is anything other than a specific named awarding body — it's an unaccredited certificate. <a href='https://www.houseofgb.co.uk/training-academy' target='_blank' rel='noopener'>House of GB's training courses</a> are a reference point for what a regulated, live-salon training environment looks like in practice."
+    }
+  }
+};
+initQuiz(questions, resultConfig);
+</script>
+</body>
+</html>

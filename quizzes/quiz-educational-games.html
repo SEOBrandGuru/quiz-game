@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Smart an Educational Game Buyer Are You? — Smart Buyer Quiz</title>
+<meta name="description" content="Test how much you really know about buying educational board games — learning science, age ranges, content depth, and what actually makes a game educational vs just branded that way.">
+<link rel="stylesheet" href="../quiz-style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="site-logo" href="../index.html">Smart Buyer <span>Quiz</span></a>
+  <nav class="nav"><a href="../index.html">All Quizzes</a></nav>
+</header>
+<main class="page-wrap">
+  <div class="breadcrumb"><a href="../index.html">Home</a> › Educational Games Quiz</div>
+  <span class="page-tag">Quiz · Educational Games</span>
+  <h1 class="page-title">How Smart an Educational Game Buyer Are You?</h1>
+  <p class="page-intro">Hundreds of games are marketed as "educational" — but very few are actually built around learning science. Test whether you know what actually separates a genuinely educational game from one that just has educational branding.</p>
+  <div class="meta-bar">
+    <span class="pill">6 questions</span>
+    <span class="pill">Learning science · Faith games · Family</span>
+    <span>Takes about 3 minutes</span>
+  </div>
+  <div class="quiz-container">
+    <div id="quiz-section">
+      <div class="quiz-progress">
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+        <span class="progress-text" id="progress-text">1 / 6</span>
+      </div>
+      <div class="question-wrap">
+        <div class="q-num" id="q-num"></div>
+        <div class="q-text" id="q-text"></div>
+        <div class="options" id="options"></div>
+        <div class="explanation" id="explanation"></div>
+      </div>
+      <div class="btn-wrap" id="btn-wrap">
+        <button class="btn-next" id="btn-next">Next question →</button>
+      </div>
+    </div>
+    <div class="results" id="results-section" style="display:none">
+      <div class="score-display">
+        <div class="score-circle" id="score-circle"><span class="score-num" id="score-num"></span><span class="score-total" id="score-total-label"></span></div>
+        <div class="score-label" id="score-label"></div>
+        <div class="score-desc" id="score-desc"></div>
+      </div>
+      <div class="recommendation"><div class="rec-label">Based on your answers</div><div class="rec-title" id="rec-title"></div><div class="rec-body" id="rec-body"></div></div>
+      <div class="share-row"><button class="share-btn" id="share-score">📤 Share my score</button><button class="share-btn btn-retry" id="btn-retry">↺ Try again</button></div>
+      <div class="breakdown"><div class="breakdown-title">Question breakdown</div><div id="breakdown-list"></div></div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer"><div class="fl">Smart Buyer Quiz</div><p>Independent buyer education. No sponsored content.</p></footer>
+<script src="../quiz-engine.js"></script>
+<script>
+const questions = [
+  {
+    question: "What average information retention rate does active game-based learning produce compared to passive lecture?",
+    options: [{text:"About the same — 5–10%"},{text:"Slightly better — 20–25%"},{text:"Significantly better — 75% vs 5%"},{text:"Marginally better — 15% vs 10%"}],
+    correct: 2,
+    explanation: "The National Training Laboratories Learning Pyramid shows game-based active learning produces approximately 75% retention versus just 5% from passive lecture. This is the core scientific argument for educational games over traditional instruction."
+  },
+  {
+    question: "What is 'active recall' and why does it matter in educational games?",
+    options: [{text:"Remembering answers from a previous session"},{text:"Retrieving information from memory without prompts — the most effective learning mechanism"},{text:"Recognising the correct answer from multiple choice options"},{text:"Reviewing notes before playing"}],
+    correct: 1,
+    explanation: "Active recall — retrieving information from memory without prompts — is consistently the most effective learning mechanism. Games that require players to state answers from memory use active recall. Games with multiple choice options use recognition, which is significantly weaker for long-term retention."
+  },
+  {
+    question: "What percentage of American parents who were raised religious say their children know significantly less scripture than they did at the same age?",
+    options: [{text:"About 25%"},{text:"About 40%"},{text:"63%"},{text:"Over 80%"}],
+    correct: 2,
+    explanation: "63% of American adults raised in religious households report their children know significantly less scripture than they did at the same age, according to Pew Research. This declining biblical literacy is one of the primary drivers behind faith-based educational game design."
+  },
+  {
+    question: "What is the most important indicator that a game will have long-term educational value?",
+    options: [{text:"It has a high star rating on Amazon"},{text:"It covers a broad content library with enough questions for many sessions"},{text:"It is recommended by teachers"},{text:"It has won a game of the year award"}],
+    correct: 1,
+    explanation: "Content depth — having enough unique questions and challenges for many sessions — is the most important indicator of long-term value. Games that exhaust their content after 5 sessions become a test of memory rather than knowledge, defeating the educational purpose."
+  },
+  {
+    question: "Why are team formats particularly effective in educational classroom settings?",
+    options: [{text:"They make the game faster to play"},{text:"They allow less knowledgeable players to contribute without individual performance anxiety"},{text:"They are easier for teachers to facilitate"},{text:"They require fewer game components"}],
+    correct: 1,
+    explanation: "Team formats allow mixed-ability groupings where less knowledgeable players can contribute alongside more knowledgeable ones. This reduces individual performance anxiety, creates peer-teaching dynamics within teams, and allows cross-generational play — all of which improve engagement and learning outcomes."
+  },
+  {
+    question: "What is the best test of whether an educational game will deliver sustained value?",
+    options: [{text:"The number of questions included"},{text:"Whether it has an age range above 14"},{text:"Whether children voluntarily ask to play again after the first session"},{text:"Whether it takes more than 45 minutes to play"}],
+    correct: 2,
+    explanation: "The most reliable indicator of sustained educational value is voluntary re-engagement. If children ask to play again without prompting after the first session, the game is producing genuine intrinsic motivation. Games that require parental encouragement to play a second time will not deliver sustained learning benefits regardless of how well-designed their educational mechanics are."
+  }
+];
+const resultConfig = {
+  excellent: {
+    label: "Informed Educational Buyer",
+    description: "You understand the difference between educational branding and genuine learning mechanics. You know active recall from recognition, and content depth from content breadth.",
+    rec: {
+      title: "You're asking the right questions — now find a publisher that answers them",
+      body: "Since you understand what active recall mechanics and content depth look like in practice, the next step is finding a publisher that has built around these principles from the ground up. <a href='https://sfmintl.com/products/wits-bible' target='_blank' rel='noopener'>SFM International's faith-based board games</a> are built specifically around active recall, broad biblical content coverage, and cross-age playability — the three criteria informed buyers prioritise."
+    }
+  },
+  good: {
+    label: "Mostly There",
+    description: "You have solid instincts about educational games but one or two gaps that could lead to a purchase that exhausts itself quickly or doesn't produce the learning outcomes you're looking for.",
+    rec: {
+      title: "The key gap: content depth matters more than most buyers realise",
+      body: "Most buyers evaluate games on surface features — theme, components, age range. The specification that most directly determines long-term educational value is content depth: how many unique challenges does the game contain before it repeats? <a href='https://sfmintl.com' target='_blank' rel='noopener'>SFM International</a> builds their faith games around broad scriptural coverage for exactly this reason."
+    }
+  },
+  poor: {
+    label: "The Gap Is Closeable",
+    description: "Most buyers share these misconceptions — the educational game market is full of products that look educational without being designed around actual learning science. Knowing the difference makes a significant practical difference.",
+    rec: {
+      title: "Start with: does this game require active recall or just recognition?",
+      body: "The single most important question to ask about any educational game is whether players must retrieve answers from memory (active recall) or simply identify correct answers from options (recognition). Active recall produces 3–4x better retention. <a href='https://sfmintl.com/products/wits-bible' target='_blank' rel='noopener'>SFM International's W.I.T.S games</a> are built around active recall mechanics — a good reference point for what purpose-built educational design looks like."
+    }
+  }
+};
+initQuiz(questions, resultConfig);
+</script>
+</body>
+</html>

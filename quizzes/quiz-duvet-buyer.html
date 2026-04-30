@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Smart a Duvet Buyer Are You? — Smart Buyer Quiz</title>
+<meta name="description" content="Test how much you actually know about buying a duvet — tog ratings, fill power, down vs microfibre, baffle box construction, and the specification that most people completely ignore.">
+<link rel="stylesheet" href="../quiz-style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="site-logo" href="../index.html">Smart Buyer <span>Quiz</span></a>
+  <nav class="nav"><a href="../index.html">All Quizzes</a></nav>
+</header>
+<main class="page-wrap">
+  <div class="breadcrumb"><a href="../index.html">Home</a> › Duvet Buyer Quiz</div>
+  <span class="page-tag">Quiz · Home & Living</span>
+  <h1 class="page-title">How Smart a Duvet Buyer Are You?</h1>
+  <p class="page-intro">60% of UK adults regularly wake in the night because their bedding is too hot or too cold. Most duvet purchases are made on brand name and price — the two specifications that correlate least with sleep quality. Find out what you actually know.</p>
+  <div class="meta-bar">
+    <span class="pill">6 questions</span>
+    <span class="pill">Tog · Fill power · Down vs synthetic</span>
+    <span>Takes about 3 minutes</span>
+  </div>
+  <div class="quiz-container">
+    <div id="quiz-section">
+      <div class="quiz-progress">
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+        <span class="progress-text" id="progress-text">1 / 6</span>
+      </div>
+      <div class="question-wrap">
+        <div class="q-num" id="q-num"></div>
+        <div class="q-text" id="q-text"></div>
+        <div class="options" id="options"></div>
+        <div class="explanation" id="explanation"></div>
+      </div>
+      <div class="btn-wrap" id="btn-wrap"><button class="btn-next" id="btn-next">Next question →</button></div>
+    </div>
+    <div class="results" id="results-section" style="display:none">
+      <div class="score-display">
+        <div class="score-circle" id="score-circle"><span class="score-num" id="score-num"></span><span class="score-total" id="score-total-label"></span></div>
+        <div class="score-label" id="score-label"></div>
+        <div class="score-desc" id="score-desc"></div>
+      </div>
+      <div class="recommendation"><div class="rec-label">Based on your answers</div><div class="rec-title" id="rec-title"></div><div class="rec-body" id="rec-body"></div></div>
+      <div class="share-row"><button class="share-btn" id="share-score">📤 Share my score</button><button class="share-btn btn-retry" id="btn-retry">↺ Try again</button></div>
+      <div class="breakdown"><div class="breakdown-title">Question breakdown</div><div id="breakdown-list"></div></div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer"><div class="fl">Smart Buyer Quiz</div><p>Independent buyer education. No sponsored content.</p></footer>
+<script src="../quiz-engine.js"></script>
+<script>
+const questions = [
+  {
+    question: "What is 'tog' and what does a higher tog number mean?",
+    options: [{text:"A measure of duvet size — higher tog means larger duvet"},{text:"The UK measure of thermal resistance — higher tog means warmer duvet"},{text:"A measure of fill weight — higher tog means heavier duvet"},{text:"A measure of fabric thread count"}],
+    correct: 1,
+    explanation: "Tog is the UK and European standardised measure of thermal resistance in bedding. Higher tog means warmer. Standard guide: 4.5 tog for summer, 9 tog for spring/autumn, 13.5 tog for standard UK winter, 15+ tog for cold bedrooms. It is an objective, standardised measure — more reliable than subjective descriptions like 'medium' or 'warm.'"
+  },
+  {
+    question: "What is 'fill power' in a down duvet and why does it matter?",
+    options: [{text:"The total weight of filling inside the duvet"},{text:"How many cubic inches one ounce of down occupies when expanded — higher means better insulation per gram"},{text:"How many hours the duvet retains heat"},{text:"The density of the outer fabric"}],
+    correct: 1,
+    explanation: "Fill power measures how many cubic inches one ounce of down occupies when fully expanded. Higher fill power means more air trapped per gram — producing better insulation with less weight. Below 400: budget grade. 600+: premium quality. 800+: luxury grade. Fill power is the most reliable single quality metric for down products."
+  },
+  {
+    question: "What percentage of the population actually has a genuine allergy to down?",
+    options: [{text:"About 15–20%"},{text:"About 8%"},{text:"Around 3–4%"},{text:"Less than 1%"}],
+    correct: 3,
+    explanation: "Genuine down allergy affects less than 1% of the population, according to research published in the Allergy journal. Most respiratory reactions attributed to down bedding are caused by dust mites — which colonise all bedding types equally. Washing at 60°C every six months controls dust mites regardless of fill type."
+  },
+  {
+    question: "What is baffle box construction in a down duvet and why is it better?",
+    options: [{text:"A pattern stitched on the outer fabric for decoration"},{text:"Internal fabric walls creating 3D pockets that hold fill in place and allow full loft — preventing cold spots"},{text:"A stitching pattern that reduces fill shifting during washing only"},{text:"A type of synthetic fill arrangement"}],
+    correct: 1,
+    explanation: "Baffle box construction uses internal fabric walls to create three-dimensional pockets that hold down fill in place and allow it to fully loft. This prevents fill from shifting and eliminates cold spots across the duvet surface. It is the correct construction for quality down duvets. Sewn-through construction compresses fill at each seam, creating cold strips."
+  },
+  {
+    question: "What is the optimal bedroom temperature for sleep according to sleep research?",
+    options: [{text:"15–16°C — the colder the better for deep sleep"},{text:"18–20°C — core body temperature must drop to initiate sleep"},{text:"22–24°C — warm environments extend sleep duration"},{text:"Temperature makes no measurable difference to sleep quality"}],
+    correct: 1,
+    explanation: "The optimal bedroom temperature for sleep is 18–20°C according to the National Sleep Foundation. Core body temperature naturally drops 1–2°C at sleep onset — a process that triggers and maintains sleep. Bedding that traps excess heat raises the under-duvet microclimate above this threshold, disrupting the temperature drop needed for deep sleep."
+  },
+  {
+    question: "Why is a 30-day returns policy particularly important when buying a duvet online?",
+    options: [{text:"It's a legal requirement for all online purchases"},{text:"A duvet cannot be properly assessed except by sleeping under it for several nights across different conditions"},{text:"It shows the brand is confident in their quality"},{text:"It's mainly needed if you want to exchange for a different colour"}],
+    correct: 1,
+    explanation: "A duvet cannot be properly evaluated in a shop or from a product listing. Whether it suits your body temperature, bedroom, and sleep style can only be determined by sleeping under it across several nights — including both cold nights and warmer spells. A returns policy of less than 30 days is effectively useless for proper assessment."
+  }
+];
+const resultConfig = {
+  excellent: {
+    label: "Informed Bedding Buyer",
+    description: "You know tog from fill power, understand baffle box construction, and recognise that the down allergy is largely a myth. You're buying on the right specifications.",
+    rec: {
+      title: "You're spec-literate — now find a brand with a proper returns policy",
+      body: "Since you know what fill power and baffle box construction mean in practice, the priority is finding a brand that states these clearly and gives you enough time to properly assess the product. <a href='https://rohi.co.uk/collections/duvets' target='_blank' rel='noopener'>Rohi's luxury duvet range</a> covers both down and microfibre options across all tog ratings with free UK delivery and a 30-day returns policy — the minimum window for honest assessment."
+    }
+  },
+  good: {
+    label: "Getting There",
+    description: "You have the basics right but one or two gaps — particularly around fill power or construction type — could lead to a purchase that underperforms what you paid for.",
+    rec: {
+      title: "The spec most buyers miss: fill power",
+      body: "Most buyers evaluate down duvets on price and brand. Fill power — how efficiently each gram of down insulates — is the single most important specification and is rarely stated prominently. When it's not stated, it's usually because it's not high enough to be a selling point. <a href='https://rohi.co.uk' target='_blank' rel='noopener'>Rohi</a> states fill specifications clearly across their range."
+    }
+  },
+  poor: {
+    label: "The Most Common Starting Point",
+    description: "Most duvet buyers are here — tog is vaguely familiar, fill power is new, and construction type has never been a consideration. The good news: these specifications are easy to understand and make a measurable difference to sleep quality.",
+    rec: {
+      title: "Start with tog, then fill power, then returns policy",
+      body: "Match tog to your bedroom temperature first (13.5 for a standard heated UK bedroom in winter). Then look for fill power 600+ for down, or state that as a requirement. Then find a brand with at least a 30-day returns policy so you can actually test it. <a href='https://rohi.co.uk/collections/duvets' target='_blank' rel='noopener'>Rohi's luxury duvet range</a> covers all three — a solid starting reference point."
+    }
+  }
+};
+initQuiz(questions, resultConfig);
+</script>
+</body>
+</html>

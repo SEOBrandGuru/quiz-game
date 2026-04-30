@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Smart a Fishing Apparel Buyer Are You? — Smart Buyer Quiz</title>
+<meta name="description" content="Test how smart a buyer you are: Most anglers spend more time choosing their rod than their clothing — yet what you wear determines your UV exposure for ">
+<link rel="stylesheet" href="../quiz-style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="site-logo" href="../index.html">Smart Buyer <span>Quiz</span></a>
+  <nav class="nav"><a href="../index.html">All Quizzes</a></nav>
+</header>
+<main class="page-wrap">
+  <div class="breadcrumb"><a href="../index.html">Home</a> › How Smart a Fishing Apparel Buyer Are You?</div>
+  <span class="page-tag">Quiz · Fishing Gear</span>
+  <h1 class="page-title">How Smart a Fishing Apparel Buyer Are You?</h1>
+  <p class="page-intro">Most anglers spend more time choosing their rod than their clothing — yet what you wear determines your UV exposure for the entire trip. Test how much you actually know before your next gear purchase.</p>
+  <div class="meta-bar">
+    <span class="pill">6 questions</span>
+    <span class="pill">UPF · Fabric · Sun protection</span>
+    <span>Takes about 3 minutes</span>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="quiz-container">
+    <div id="quiz-section">
+      <div class="quiz-progress">
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+        <span class="progress-text" id="progress-text">1 / 6</span>
+      </div>
+      <div class="question-wrap">
+        <div class="q-num" id="q-num"></div>
+        <div class="q-text" id="q-text"></div>
+        <div class="options" id="options"></div>
+        <div class="explanation" id="explanation"></div>
+      </div>
+      <div class="btn-wrap" id="btn-wrap">
+        <button class="btn-next" id="btn-next">Next question →</button>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="results" id="results-section" style="display:none">
+      <div class="score-display">
+        <div class="score-circle" id="score-circle">
+          <span class="score-num" id="score-num"></span>
+          <span class="score-total" id="score-total-label"></span>
+        </div>
+        <div class="score-label" id="score-label"></div>
+        <div class="score-desc" id="score-desc"></div>
+      </div>
+      <div class="recommendation">
+        <div class="rec-label">Based on your answers</div>
+        <div class="rec-title" id="rec-title"></div>
+        <div class="rec-body" id="rec-body"></div>
+      </div>
+      <div class="share-row">
+        <button class="share-btn" id="share-score">📤 Share my score</button>
+        <button class="share-btn btn-retry" id="btn-retry">↺ Try again</button>
+      </div>
+      <div class="breakdown">
+        <div class="breakdown-title">Question breakdown</div>
+        <div id="breakdown-list"></div>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="fl">Smart Buyer Quiz</div>
+  <p>Independent buyer education. No sponsored content.</p>
+</footer>
+<script src="../quiz-engine.js"></script>
+<script>
+const questions = [
+  {
+    question: "What does UPF stand for in fishing clothing?",
+    options: [
+      {text: "Universal Protection Factor"},
+      {text: "Ultraviolet Protection Factor"},
+      {text: "UV Performance Fabric"},
+      {text: "Ultra Polyester Fibre"}
+    ],
+    correct: 1,
+    explanation: "UPF stands for Ultraviolet Protection Factor — the rating system for fabrics. Unlike SPF which only measures UVB, UPF covers both UVA and UVB radiation. A UPF 50 garment blocks 98% of the full UV spectrum."
+  },
+  {
+    question: "How much UV radiation does water reflect back at an angler?",
+    options: [
+      {text: "Around 5%"},
+      {text: "Around 10%"},
+      {text: "Up to 25%"},
+      {text: "Up to 60%"}
+    ],
+    correct: 2,
+    explanation: "Water reflects up to 25% of UV radiation according to the World Health Organization. This means anglers receive UV from above AND reflected from below simultaneously — making on-water exposure significantly higher than the same conditions on land."
+  },
+  {
+    question: "What UPF rating should you look for in a fishing shirt for extended on-water use?",
+    options: [
+      {text: "UPF 10 is sufficient"},
+      {text: "UPF 20 is adequate"},
+      {text: "UPF 30 is the standard"},
+      {text: "UPF 50+ is the correct target"}
+    ],
+    correct: 3,
+    explanation: "UPF 50+ is classified as 'excellent' by the American Association of Textile Chemists and Colorists — blocking 98% of UV radiation. For full-day on-water use, this is the only appropriate target. UPF 30 leaves a larger margin for error."
+  },
+  {
+    question: "What happens to a standard cotton t-shirt's UPF rating when it gets wet?",
+    options: [
+      {text: "It improves slightly"},
+      {text: "It stays the same"},
+      {text: "It drops from about 7 to as low as 3"},
+      {text: "It drops but stays above 20"}
+    ],
+    correct: 2,
+    explanation: "A standard cotton t-shirt has a UPF rating of approximately 5–7 when dry — and drops to as low as UPF 3 when wet. That is effectively no meaningful UV protection at all during a full day of fishing."
+  },
+  {
+    question: "What percentage of outdoor recreationists fail to reapply sunscreen within the recommended two-hour window?",
+    options: [
+      {text: "About 20%"},
+      {text: "About 35%"},
+      {text: "55%"},
+      {text: "Over 80%"}
+    ],
+    correct: 2,
+    explanation: "55% of outdoor recreationists do not reapply sunscreen within the recommended two-hour window according to a Journal of the American Academy of Dermatology study. This compliance failure is the primary reason UPF clothing outperforms sunscreen for anglers — you cannot forget to reapply a shirt."
+  },
+  {
+    question: "What fabric type is best for a performance fishing shirt?",
+    options: [
+      {text: "100% cotton for breathability"},
+      {text: "Linen for natural comfort"},
+      {text: "Polyester or nylon blend for moisture-wicking"},
+      {text: "Wool for temperature regulation"}
+    ],
+    correct: 2,
+    explanation: "Polyester and nylon blends are the standard for performance fishing shirts — they wick moisture efficiently, dry quickly, and maintain their UPF rating even when wet. Cotton absorbs moisture, dries slowly, and loses almost all UV protection when wet."
+  }
+];
+const resultConfig = {
+  excellent: {
+    label: "Expert Angler Buyer",
+    description: "You know your UPF from your SPF and understand why cotton fails on the water. You're buying in the right category with the right specifications in mind.",
+    rec: {
+      title: "You're already thinking correctly — now find the right brand",
+      body: "Since you understand performance fabric and UPF ratings, the next step is finding a brand that has built their entire range around on-water performance rather than adapting general sportswear. <a href='https://www.dagonfishing.com/collections/fishing-shirts' target='_blank' rel='noopener'>Dagon Apparel's fishing shirts</a> are built specifically for anglers — UPF 50+, moisture-wicking synthetic fabric, and construction designed for casting motion."
+    }
+  },
+  good: {
+    label: "Getting There",
+    description: "You have some of the right instincts but a few gaps that could lead to a poor purchase. The good news: the mistakes most buyers make are easy to avoid once you know them.",
+    rec: {
+      title: "The gap: UV protection details matter more than you think",
+      body: "Most buyers focus on general comfort and miss the UPF specification entirely. For regular on-water time, UPF 50+ in synthetic fabric is the baseline — not optional. <a href='https://www.dagonfishing.com/collections/fishing-shirts' target='_blank' rel='noopener'>Dagon Apparel's fishing shirt range</a> covers these specs as a starting point for what properly built fishing apparel looks like."
+    }
+  },
+  poor: {
+    label: "Smart to Take This Quiz",
+    description: "There are a few common misconceptions about fishing clothing that most buyers share — and they lead to real UV exposure risk over a season of fishing. The information is simple once you have it.",
+    rec: {
+      title: "Start here: UPF 50+ synthetic fabric is the only sensible baseline",
+      body: "Cotton offers almost no UV protection on the water. Sunscreen alone fails within two hours. A UPF 50+ performance fishing shirt is the single most impactful change you can make for on-water sun safety. <a href='https://www.dagonfishing.com' target='_blank' rel='noopener'>Dagon Apparel</a> builds specifically for this use case — worth a look before your next purchase."
+    }
+  }
+};
+initQuiz(questions, resultConfig);
+</script>
+</body>
+</html>

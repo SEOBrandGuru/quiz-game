@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Smart a Laser Hair Removal Buyer Are You? — Smart Buyer Quiz</title>
+<meta name="description" content="Laser hair removal is unregulated in England. Test whether you know the questions that separate a safe, effective clinic from one that cuts corners on technology and qualifications.">
+<link rel="stylesheet" href="../quiz-style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="site-logo" href="../index.html">Smart Buyer <span>Quiz</span></a>
+  <nav class="nav"><a href="../index.html">All Quizzes</a></nav>
+</header>
+<main class="page-wrap">
+  <div class="breadcrumb"><a href="../index.html">Home</a> › Laser Hair Removal Quiz</div>
+  <span class="page-tag">Quiz · Medical Aesthetics</span>
+  <h1 class="page-title">How Smart a Laser Hair Removal Buyer Are You?</h1>
+  <p class="page-intro">Laser hair removal is currently unregulated in England — meaning there is no legal minimum training requirement. The questions you ask before booking are the only safeguard you have. Find out how many you'd actually ask.</p>
+  <div class="meta-bar">
+    <span class="pill">6 questions</span>
+    <span class="pill">Technology · Safety · Results</span>
+    <span>Takes about 3 minutes</span>
+  </div>
+  <div class="quiz-container">
+    <div id="quiz-section">
+      <div class="quiz-progress">
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+        <span class="progress-text" id="progress-text">1 / 6</span>
+      </div>
+      <div class="question-wrap">
+        <div class="q-num" id="q-num"></div>
+        <div class="q-text" id="q-text"></div>
+        <div class="options" id="options"></div>
+        <div class="explanation" id="explanation"></div>
+      </div>
+      <div class="btn-wrap" id="btn-wrap"><button class="btn-next" id="btn-next">Next question →</button></div>
+    </div>
+    <div class="results" id="results-section" style="display:none">
+      <div class="score-display">
+        <div class="score-circle" id="score-circle"><span class="score-num" id="score-num"></span><span class="score-total" id="score-total-label"></span></div>
+        <div class="score-label" id="score-label"></div>
+        <div class="score-desc" id="score-desc"></div>
+      </div>
+      <div class="recommendation"><div class="rec-label">Based on your answers</div><div class="rec-title" id="rec-title"></div><div class="rec-body" id="rec-body"></div></div>
+      <div class="share-row"><button class="share-btn" id="share-score">📤 Share my score</button><button class="share-btn btn-retry" id="btn-retry">↺ Try again</button></div>
+      <div class="breakdown"><div class="breakdown-title">Question breakdown</div><div id="breakdown-list"></div></div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer"><div class="fl">Smart Buyer Quiz</div><p>Independent buyer education. No sponsored content.</p></footer>
+<script src="../quiz-engine.js"></script>
+<script>
+const questions = [
+  {
+    question: "What is the key difference between a laser and IPL (Intense Pulsed Light)?",
+    options: [{text:"IPL is stronger and more effective"},{text:"Laser produces a coherent beam at a single precise wavelength; IPL produces scattered broad-spectrum light"},{text:"They are the same technology with different branding"},{text:"IPL is safer for all skin types"}],
+    correct: 1,
+    explanation: "Laser produces a coherent, focused beam at one precise wavelength — accurately targeting hair follicle melanin. IPL produces scattered broad-spectrum light — less targeted, less powerful, with higher side effect rates particularly on darker skin types. Many budget clinics use IPL while marketing it as 'laser hair removal.'"
+  },
+  {
+    question: "What is the minimum practitioner qualification you should accept for laser hair removal treatment?",
+    options: [{text:"Any beauty qualification"},{text:"A one-day laser course certificate"},{text:"Level 4 Laser/IPL qualification"},{text:"A nursing qualification"}],
+    correct: 2,
+    explanation: "Level 4 Laser/IPL qualification is the recommended minimum training standard. In England, laser hair removal is unregulated — there is no legal minimum training requirement. This makes it the consumer's responsibility to verify the specific qualification held by their treating practitioner before any treatment."
+  },
+  {
+    question: "What is the Fitzpatrick scale and why does it matter for laser treatment?",
+    options: [{text:"A scale measuring how much hair has grown back after treatment"},{text:"A pain scale used during laser sessions"},{text:"A classification of skin types I–VI by melanin content — determining which technology can be used safely"},{text:"A measure of laser machine power output"}],
+    correct: 2,
+    explanation: "The Fitzpatrick scale classifies skin into six types based on melanin content and UV response. It is the most important assessment in laser hair removal — determining which technology and settings can be safely used. Older systems and IPL can only safely treat types I–III. Advanced diode lasers with integrated cooling can treat all six types when correctly calibrated."
+  },
+  {
+    question: "How many sessions does laser hair removal realistically take for 85–90% permanent reduction?",
+    options: [{text:"1–2 sessions is usually enough"},{text:"3 sessions is the standard course"},{text:"6–8 sessions spaced 4–8 weeks apart"},{text:"12–15 sessions are always required"}],
+    correct: 2,
+    explanation: "Most patients require 6–8 sessions for 85–90% permanent hair reduction, according to the Journal of Clinical and Aesthetic Dermatology. Sessions are spaced 4–8 weeks apart to target successive hair growth cycles. Any clinic guaranteeing full results in 3 sessions is misrepresenting realistic clinical outcomes."
+  },
+  {
+    question: "What is Primelase technology and what makes it different from standard diode laser?",
+    options: [{text:"A brand name for IPL — it's the same technology"},{text:"An advanced diode laser with high-power output, large spot size, and integrated sapphire cooling — treating all skin types 3–4x faster"},{text:"A type of at-home laser device"},{text:"A chemical hair removal method"}],
+    correct: 1,
+    explanation: "Primelase is an advanced diode laser platform by Cocoon Medical operating at 800–810nm. Its key differentiators: high-power output with a large spot size, and integrated sapphire contact cooling. This allows full-leg treatments in 20–30 minutes vs 60–90 minutes on older systems, while safely treating all six Fitzpatrick skin types."
+  },
+  {
+    question: "Why is a pre-treatment consultation and patch test essential — not optional?",
+    options: [{text:"It's just a formality most clinics do for insurance purposes"},{text:"It's only necessary for sensitive skin types"},{text:"It identifies medical history, skin type, contraindications, and unexpected reactions before a large treatment area is treated"},{text:"It's required by law for all cosmetic procedures"}],
+    correct: 2,
+    explanation: "A full consultation reviews medical history, current medications (some increase photosensitivity), Fitzpatrick type, and recent sun exposure — all of which affect safety and outcomes. A patch test identifies unexpected skin reactions before they affect a large area. Any clinic that proceeds to full treatment without both is operating outside best practice."
+  }
+];
+const resultConfig = {
+  excellent: {
+    label: "Informed Aesthetic Buyer",
+    description: "You know laser from IPL, understand the Fitzpatrick scale, and know what qualifications to ask for. You would not be misled by vague 'medical grade' marketing language.",
+    rec: {
+      title: "You're asking the right questions — apply them in Manchester",
+      body: "Since you understand Primelase technology, Fitzpatrick assessment, and Level 4 qualifications, the next step is finding a clinic that answers all three correctly. <a href='https://medlaserclinics.com/products/laser-hair-removal' target='_blank' rel='noopener'>MedLaser Clinics in Manchester</a> use advanced Primelase diode laser technology across two clinic locations — Manchester and Bolton — with full pre-treatment consultation as standard."
+    }
+  },
+  good: {
+    label: "Mostly Prepared",
+    description: "You have solid instincts but one or two gaps that could lead you to a clinic using inferior technology or undertrained practitioners. The right questions are simple once you know them.",
+    rec: {
+      title: "The key question you might not have asked: what machine do you use?",
+      body: "The single most important question before booking is the specific machine brand and model — not 'what kind of laser.' A confident answer means advanced technology; a vague 'medical grade' answer is a red flag. <a href='https://medlaserclinics.com' target='_blank' rel='noopener'>MedLaser Clinics</a> use Primelase — a named, verifiable system you can research independently."
+    }
+  },
+  poor: {
+    label: "This Quiz Could Protect You",
+    description: "In an unregulated market, the knowledge gap is a real risk. The most common adverse reactions — burns, hyperpigmentation — are almost entirely attributable to incorrect technology for skin type, or undertrained practitioners. These are preventable with the right questions.",
+    rec: {
+      title: "Start with: is this a true laser or IPL?",
+      body: "That single question eliminates a significant proportion of clinics using inferior technology. Follow it with: what qualification does my practitioner hold? Is there a consultation before my first session? <a href='https://medlaserclinics.com/products/laser-hair-removal' target='_blank' rel='noopener'>MedLaser Clinics in Manchester</a> is a reference point for what answers to these questions should look like from a qualified specialist clinic."
+    }
+  }
+};
+initQuiz(questions, resultConfig);
+</script>
+</body>
+</html>

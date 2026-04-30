@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Smart a Legal Services Buyer Are You? — Smart Buyer Quiz</title>
+<meta name="description" content="Test how much you know about hiring a solicitor in the UK — SRA verification, fee structures, red flags, and the questions most businesses never think to ask before instruction.">
+<link rel="stylesheet" href="../quiz-style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="site-logo" href="../index.html">Smart Buyer <span>Quiz</span></a>
+  <nav class="nav"><a href="../index.html">All Quizzes</a></nav>
+</header>
+<main class="page-wrap">
+  <div class="breadcrumb"><a href="../index.html">Home</a> › Legal Services Quiz</div>
+  <span class="page-tag">Quiz · Legal Services UK</span>
+  <h1 class="page-title">How Smart a Legal Services Buyer Are You?</h1>
+  <p class="page-intro">41% of all legal complaints relate to costs that clients didn't see coming. Most of these are entirely preventable — if you know the right questions to ask before instruction. Find out how prepared you actually are.</p>
+  <div class="meta-bar">
+    <span class="pill">6 questions</span>
+    <span class="pill">Corporate law · Solicitors · UK</span>
+    <span>Takes about 3 minutes</span>
+  </div>
+  <div class="quiz-container">
+    <div id="quiz-section">
+      <div class="quiz-progress">
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+        <span class="progress-text" id="progress-text">1 / 6</span>
+      </div>
+      <div class="question-wrap">
+        <div class="q-num" id="q-num"></div>
+        <div class="q-text" id="q-text"></div>
+        <div class="options" id="options"></div>
+        <div class="explanation" id="explanation"></div>
+      </div>
+      <div class="btn-wrap" id="btn-wrap"><button class="btn-next" id="btn-next">Next question →</button></div>
+    </div>
+    <div class="results" id="results-section" style="display:none">
+      <div class="score-display">
+        <div class="score-circle" id="score-circle"><span class="score-num" id="score-num"></span><span class="score-total" id="score-total-label"></span></div>
+        <div class="score-label" id="score-label"></div>
+        <div class="score-desc" id="score-desc"></div>
+      </div>
+      <div class="recommendation"><div class="rec-label">Based on your answers</div><div class="rec-title" id="rec-title"></div><div class="rec-body" id="rec-body"></div></div>
+      <div class="share-row"><button class="share-btn" id="share-score">📤 Share my score</button><button class="share-btn btn-retry" id="btn-retry">↺ Try again</button></div>
+      <div class="breakdown"><div class="breakdown-title">Question breakdown</div><div id="breakdown-list"></div></div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer"><div class="fl">Smart Buyer Quiz</div><p>Independent buyer education. No sponsored content.</p></footer>
+<script src="../quiz-engine.js"></script>
+<script>
+const questions = [
+  {
+    question: "Where can you verify a solicitor's registration before instructing them?",
+    options: [{text:"Their own website"},{text:"The Law Society directory"},{text:"The SRA public register at sra.org.uk"},{text:"Companies House"}],
+    correct: 2,
+    explanation: "All practising solicitors in England and Wales must be registered with the Solicitors Regulation Authority. The SRA public register at sra.org.uk is free to use and should be checked before any other evaluation step — it confirms the solicitor is insured, accountable, and subject to professional conduct rules."
+  },
+  {
+    question: "What is a client care letter and when must you receive it?",
+    options: [{text:"A welcome email sent after your first meeting"},{text:"A document required before substantive work begins — covering scope, fees, and complaints procedure"},{text:"A letter sent when your case concludes"},{text:"An optional document most firms provide informally"}],
+    correct: 1,
+    explanation: "A client care letter is a regulatory requirement under SRA rules. It must be provided before substantive work begins and sets out the scope of work, fee structure, who handles your matter, and the complaints procedure. Reading it carefully before signing is one of the most important steps in instructing a solicitor."
+  },
+  {
+    question: "What percentage of all Legal Ombudsman complaints relate to costs?",
+    options: [{text:"About 15%"},{text:"About 25%"},{text:"41%"},{text:"Over 60%"}],
+    correct: 2,
+    explanation: "41% of all complaints received by the Legal Ombudsman relate to costs — either unexpected charges, poor cost information, or bills significantly higher than initial estimates. This is the most common complaint category and is almost entirely preventable with full fee clarity before instruction."
+  },
+  {
+    question: "What percentage of civil litigation in England and Wales is handled in local and regional courts rather than the High Court?",
+    options: [{text:"About 30%"},{text:"About 50%"},{text:"73%"},{text:"Almost 90%"}],
+    correct: 2,
+    explanation: "73% of civil litigation in England and Wales is handled in local and regional courts, according to Ministry of Justice statistics. This is why local court familiarity is a genuine performance advantage — a solicitor who regularly appears in your local court knows the judiciary, procedural preferences, and listing system."
+  },
+  {
+    question: "What does Legal-as-a-Service (LaaS) mean?",
+    options: [{text:"A free legal advice service run by the government"},{text:"A subscription-based model giving ongoing access to commercial legal advice at a fixed monthly cost"},{text:"An app that automates contract drafting"},{text:"A service for startups only"}],
+    correct: 1,
+    explanation: "LaaS is a subscription model where businesses receive ongoing access to commercial legal expertise at a fixed monthly cost rather than instructing reactively per matter. It provides predictable legal budgeting, embedded expertise, and proactive advice — functioning similarly to in-house legal counsel without the overhead."
+  },
+  {
+    question: "What is the most common primary complaint from dissatisfied legal clients — above poor legal strategy or bad outcomes?",
+    options: [{text:"Solicitors not winning their case"},{text:"Unexpected final bills"},{text:"Communication delays and unavailability"},{text:"Mistakes in legal documents"}],
+    correct: 2,
+    explanation: "68% of dissatisfied legal clients cite communication delays and lack of availability as their primary complaint — above issues with legal strategy or outcomes, according to the Legal Services Consumer Panel. This means communication standards can be evaluated before instruction by measuring the firm's initial response time."
+  }
+];
+const resultConfig = {
+  excellent: {
+    label: "Informed Legal Buyer",
+    description: "You know the SRA register, understand client care letters, and recognise the most common failure modes. You're unlikely to be caught out by unexpected costs or unverified credentials.",
+    rec: {
+      title: "You're asking the right questions — now apply them locally",
+      body: "Since you know what to verify and what to ask, the next step is applying this to a Manchester-based firm with genuine local expertise. <a href='https://blackmontlegal.com/corporate-solicitors-in-manchester/' target='_blank' rel='noopener'>Blackmont Legal's corporate solicitors in Manchester</a> provide both traditional instruction and Legal-as-a-Service models for businesses that want embedded ongoing legal support rather than reactive fire-fighting."
+    }
+  },
+  good: {
+    label: "Mostly Prepared",
+    description: "You have solid instincts but one or two gaps that could lead to a costly surprise. The good news: the fixes are simple questions to ask before you sign anything.",
+    rec: {
+      title: "The gap most buyers miss: full fee clarity before instruction",
+      body: "41% of legal complaints are about costs that clients didn't expect. Getting a written cost estimate covering the full scope — including disbursements — before work begins prevents almost all of these. <a href='https://blackmontlegal.com' target='_blank' rel='noopener'>Blackmont Legal</a> provides transparent fee structures as a starting point for what good legal practice looks like."
+    }
+  },
+  poor: {
+    label: "This Quiz Could Save You Money",
+    description: "Most businesses share these gaps — the legal services market is not designed to make buying easy, and the most important checks are not obvious. Knowing them protects you from the most common and expensive mistakes.",
+    rec: {
+      title: "First step: always verify SRA registration before anything else",
+      body: "Before evaluating any solicitor on reputation, price, or reviews — check the SRA register at sra.org.uk. It takes 60 seconds and confirms basic regulatory standing. Then ask for a client care letter before work begins. <a href='https://blackmontlegal.com/corporate-solicitors-in-manchester/' target='_blank' rel='noopener'>Blackmont Legal</a> in Manchester is a reference point for what transparent, commercially-focused corporate legal support looks like."
+    }
+  }
+};
+initQuiz(questions, resultConfig);
+</script>
+</body>
+</html>
