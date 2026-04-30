@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Buyer Quiz — Test How Informed You Are Before You Buy</title>
+<meta name="description" content="8 quizzes testing how informed you are as a buyer — fishing apparel, educational games, legal services, laser hair removal, bedding, beauty training, safari operators, and outdoor boots.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#fafaf8;--surface:#fff;--border:#e8e4df;--text:#1a1814;--body:#3d3830;--muted:#8a8278;--accent:#1d4ed8;--tag:#f0ede8}
+body{background:var(--bg);color:var(--body);font-family:'Inter',sans-serif;font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+.hdr{background:var(--surface);border-bottom:1px solid var(--border);padding:0 40px;height:58px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo{font-family:'Lora',serif;font-size:19px;font-weight:700;color:var(--text);text-decoration:none}
+.logo span{color:var(--accent)}
+.hdr-tag{font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.12em;border:1px solid var(--border);padding:4px 10px}
+/* HERO */
+.hero{max-width:860px;margin:0 auto;padding:72px 40px 56px;border-bottom:1px solid var(--border)}
+.hero-eyebrow{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--muted)}
+.hero h1{font-family:'Lora',serif;font-size:clamp(32px,6vw,54px);font-weight:700;line-height:1.1;color:var(--text);letter-spacing:-.02em;margin-bottom:18px}
+.hero h1 em{font-style:italic;font-weight:400;color:var(--muted)}
+.hero p{font-size:16px;color:var(--muted);max-width:540px;line-height:1.75;margin-bottom:28px}
+.hero-stats{display:flex;gap:32px;flex-wrap:wrap}
+.hs{text-align:center;padding:0 20px;border-right:1px solid var(--border)}
+.hs:last-child{border-right:none}
+.hs-n{font-family:'Lora',serif;font-size:32px;font-weight:700;color:var(--text);line-height:1}
+.hs-l{font-size:12px;color:var(--muted);margin-top:3px}
+/* QUIZ GRID */
+.section{max-width:860px;margin:0 auto;padding:52px 40px 72px}
+.section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:32px}
+.section-title{font-family:'Lora',serif;font-size:24px;font-weight:700;color:var(--text)}
+.section-tag{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.1em}
+.quiz-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.quiz-card{background:var(--surface);border:1.5px solid var(--border);border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:0;text-decoration:none;transition:all .2s;position:relative;overflow:hidden}
+.quiz-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:transparent;transition:background .2s}
+.quiz-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 4px 20px rgba(29,78,216,.08)}
+.quiz-card:hover::after{background:var(--accent)}
+.qc-cat{font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+.qc-title{font-family:'Lora',serif;font-size:17px;font-weight:700;color:var(--text);line-height:1.35;margin-bottom:8px}
+.qc-desc{font-size:13px;color:var(--muted);line-height:1.6;flex:1;margin-bottom:16px}
+.qc-footer{display:flex;align-items:center;justify-content:space-between}
+.qc-pill{font-size:11px;font-weight:600;background:var(--tag);color:var(--body);padding:3px 10px;border-radius:100px}
+.qc-arrow{font-size:16px;color:var(--accent);font-weight:700}
+/* HOW IT WORKS */
+.how{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:52px 40px}
+.how-inner{max-width:860px;margin:0 auto}
+.how h2{font-family:'Lora',serif;font-size:24px;font-weight:700;color:var(--text);margin-bottom:32px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.step{border-left:2px solid var(--border);padding-left:20px}
+.step-num{font-family:'Space Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:.12em;margin-bottom:8px}
+.step-title{font-weight:600;color:var(--text);font-size:15px;margin-bottom:6px}
+.step-desc{font-size:13px;color:var(--muted);line-height:1.65}
+/* ABOUT */
+.about{background:var(--text);color:rgba(255,255,255,.5);padding:52px 40px}
+.about-inner{max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:52px}
+.about h2{font-family:'Lora',serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:14px}
+.about p{font-size:14px;line-height:1.8;margin-bottom:10px}
+.about-items{display:flex;flex-direction:column;gap:16px}
+.ai{border-top:1px solid rgba(255,255,255,.1);padding-top:14px}
+.ai-l{font-family:'Space Mono',monospace;font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+.ai-v{font-size:13px;color:rgba(255,255,255,.65);line-height:1.6}
+/* FOOTER */
+footer{background:var(--surface);border-top:1px solid var(--border);padding:28px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer .fl{font-family:'Lora',serif;font-size:15px;font-weight:700;color:var(--text)}
+footer .fl span{color:var(--accent)}
+footer .fc{font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.06em}
+@media(max-width:700px){.hdr{padding:0 20px}.hero,.section,.how,.about{padding-left:20px;padding-right:20px}.quiz-grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.about-inner{grid-template-columns:1fr}.hero-stats .hs{padding:0 12px}.hero h1{font-size:clamp(30px,8vw,48px)}footer{padding:20px}}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <a class="logo" href="#">Smart Buyer <span>Quiz</span></a>
+  <span class="hdr-tag">8 QUIZZES · ALL FREE</span>
+</header>
+
+<div class="hero">
+  <div class="hero-eyebrow">Buyer intelligence tests</div>
+  <h1>How smart a buyer<br>are you <em>really?</em></h1>
+  <p>8 quizzes testing whether you know what actually matters before making a purchase — covering fishing apparel, educational games, legal services, laser hair removal, bedding, beauty training, safari operators, and outdoor boots.</p>
+  <div class="hero-stats">
+    <div class="hs"><div class="hs-n">8</div><div class="hs-l">Subjects</div></div>
+    <div class="hs"><div class="hs-n">6</div><div class="hs-l">Questions each</div></div>
+    <div class="hs"><div class="hs-n">3</div><div class="hs-l">Minutes each</div></div>
+    <div class="hs"><div class="hs-n">0</div><div class="hs-l">Sign-up needed</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-title">Choose your quiz</div>
+    <div class="section-tag">ALL 8 AVAILABLE</div>
+  </div>
+  <div class="quiz-grid">
+
+    <a class="quiz-card" href="quizzes/quiz-fishing-apparel.html">
+      <div class="qc-cat">Outdoor & Gear</div>
+      <div class="qc-title">How Smart a Fishing Apparel Buyer Are You?</div>
+      <div class="qc-desc">UPF ratings, fabric types, UV reflection on water, and why sunscreen alone isn't a strategy for serious anglers.</div>
+      <div class="qc-footer"><span class="qc-pill">6 questions</span><span class="qc-arrow">→</span></div>
+    </a>
+
+    <a class="quiz-card" href="quizzes/quiz-educational-games.html">
+      <div class="qc-cat">Education & Family</div>
+      <div class="qc-title">How Smart an Educational Game Buyer Are You?</div>
+      <div class="qc-desc">Active recall vs recognition, content depth, religious literacy data, and what the learning retention pyramid actually says.</div>
+      <div class="qc-footer"><span class="qc-pill">6 questions</span><span class="qc-arrow">→</span></div>
+    </a>
+
+    <a class="quiz-card" href="quizzes/quiz-corporate-solicitor.html">
+      <div class="qc-cat">Legal Services</div>
+      <div class="qc-title">How Smart a Legal Services Buyer Are You?</div>
+      <div class="qc-desc">SRA verification, client care letters, the 41% cost complaint statistic, and what LaaS actually means for your business.</div>
+      <div class="qc-footer"><span class="qc-pill">6 questions</span><span class="qc-arrow">→</span></div>
+    </a>
+
+    <a class="quiz-card" href="quizzes/quiz-laser-clinic.html">
+      <div class="qc-cat">Health & Aesthetics</div>
+      <div class="qc-title">How Smart a Laser Hair Removal Buyer Are You?</div>
+      <div class="qc-desc">Laser vs IPL, Fitzpatrick scale, Level 4 qualifications, Primelase technology, and why England's unregulated market puts you in charge.</div>
+      <div class="qc-footer"><span class="qc-pill">6 questions</span><span class="qc-arrow">→</span></div>
+    </a>
+
+    <a class="quiz-card" href="quizzes/quiz-duvet-buyer.html">
+      <div class="qc-cat">Home & Living</div>
+      <div class="qc-title">How Smart a Duvet Buyer Are You?</div>
+      <div class="qc-desc">Tog ratings, fill power, baffle box construction, the down allergy myth, and why 60% of UK adults wake from temperature problems.</div>
+      <div class="qc-footer"><span class="qc-pill">6 questions</span><span class="qc-arrow">→</span></div>
+    </a>
+
+    <a class="quiz-card" href="quizzes/quiz-beauty-training.html">
+      <div class="qc-cat">Beauty & Training</div>
+      <div class="qc-title">How Smart a Beauty Training Buyer Are You?</div>
+      <div class="qc-desc">Ofqual regulation vs CPD accreditation, live salon training, class sizes, and why two certificates that look the same have very different career value.</div>
+      <div class="qc-footer"><span class="qc-pill">6 questions</span><span class="qc-arrow">→</span></div>
+    </a>
+
+    <a class="quiz-card" href="quizzes/quiz-safari-operator.html">
+      <div class="qc-cat">Travel & Safari</div>
+      <div class="qc-title">How Smart a Safari Buyer Are You?</div>
+      <div class="qc-desc">Guide quality vs lodge facilities, where the walking safari was born, what 'fully inclusive' really means, and why camp size determines sighting quality.</div>
+      <div class="qc-footer"><span class="qc-pill">6 questions</span><span class="qc-arrow">→</span></div>
+    </a>
+
+    <a class="quiz-card" href="quizzes/quiz-mud-boots.html">
+      <div class="qc-cat">Outdoor & Gear</div>
+      <div class="qc-title">How Smart a Mud & Marshland Boot Buyer Are You?</div>
+      <div class="qc-desc">The P=F/A pressure equation, bearing capacity loss in saturated soil, why suction traps your boot, and what standard wellies can't do.</div>
+      <div class="qc-footer"><span class="qc-pill">6 questions</span><span class="qc-arrow">→</span></div>
+    </a>
+
+  </div>
+</div>
+
+<div class="how">
+  <div class="how-inner">
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">// 01</div>
+        <div class="step-title">Answer 6 questions</div>
+        <div class="step-desc">Each quiz covers the specifications, statistics, and red flags that informed buyers know — and most buyers don't. No trick questions. Real information.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">// 02</div>
+        <div class="step-title">Get instant feedback</div>
+        <div class="step-desc">Every answer shows you whether you were right and explains exactly why — turning a quiz into a genuine learning session regardless of your score.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">// 03</div>
+        <div class="step-title">Get a personalised recommendation</div>
+        <div class="step-desc">Your result tells you specifically what your score means for your next purchase — the exact knowledge gap that most commonly leads to a poor buying decision in your category.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="about">
+  <div class="about-inner">
+    <div>
+      <h2>Why these quizzes exist</h2>
+      <p>Most buying decisions are made with incomplete information. Not because people are careless — but because the information that actually matters is buried in technical specifications, regulatory frameworks, and academic research that most people never encounter.</p>
+      <p>These quizzes extract the most practically important knowledge from each domain and test it directly. The goal is not to embarrass — it's to close the gap between what buyers know and what they'd want to know if they knew it existed.</p>
+    </div>
+    <div class="about-items">
+      <div class="ai"><div class="ai-l">Subjects covered</div><div class="ai-v">8 — fishing, games, legal, aesthetics, bedding, beauty, safari, outdoor footwear</div></div>
+      <div class="ai"><div class="ai-l">Questions per quiz</div><div class="ai-v">6 questions, each with a detailed explanation regardless of whether you answered correctly</div></div>
+      <div class="ai"><div class="ai-l">Time per quiz</div><div class="ai-v">Approximately 3 minutes — answer, read the explanation, move to the next</div></div>
+      <div class="ai"><div class="ai-l">Sign-up required</div><div class="ai-v">None. No email. No account. Just the quiz.</div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="fl">Smart Buyer <span>Quiz</span></div>
+  <div class="fc">© 2025 · INDEPENDENT BUYER EDUCATION</div>
+</footer>
+
+</body>
+</html>

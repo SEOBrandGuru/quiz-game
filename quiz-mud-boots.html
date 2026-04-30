@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Smart a Mud & Marshland Boot Buyer Are You? — Smart Buyer Quiz</title>
+<meta name="description" content="Test whether you understand the physics behind why boots sink in mud — and what boot design actually prevents it. Most buyers don't know the answer before they buy.">
+<link rel="stylesheet" href="../quiz-style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="site-logo" href="../index.html">Smart Buyer <span>Quiz</span></a>
+  <nav class="nav"><a href="../index.html">All Quizzes</a></nav>
+</header>
+<main class="page-wrap">
+  <div class="breadcrumb"><a href="../index.html">Home</a> › Mud Boots Quiz</div>
+  <span class="page-tag">Quiz · Outdoor Footwear</span>
+  <h1 class="page-title">How Smart a Mud & Marshland Boot Buyer Are You?</h1>
+  <p class="page-intro">Most people who sink in marshland blame their boots for being cheap. The real problem is that standard boots — however expensive — weren't engineered to solve the problem. Test whether you know what actually prevents sinking and why.</p>
+  <div class="meta-bar">
+    <span class="pill">6 questions</span>
+    <span class="pill">Anti-sink · Soil mechanics · Wetland</span>
+    <span>Takes about 3 minutes</span>
+  </div>
+  <div class="quiz-container">
+    <div id="quiz-section">
+      <div class="quiz-progress">
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+        <span class="progress-text" id="progress-text">1 / 6</span>
+      </div>
+      <div class="question-wrap">
+        <div class="q-num" id="q-num"></div>
+        <div class="q-text" id="q-text"></div>
+        <div class="options" id="options"></div>
+        <div class="explanation" id="explanation"></div>
+      </div>
+      <div class="btn-wrap" id="btn-wrap"><button class="btn-next" id="btn-next">Next question →</button></div>
+    </div>
+    <div class="results" id="results-section" style="display:none">
+      <div class="score-display">
+        <div class="score-circle" id="score-circle"><span class="score-num" id="score-num"></span><span class="score-total" id="score-total-label"></span></div>
+        <div class="score-label" id="score-label"></div>
+        <div class="score-desc" id="score-desc"></div>
+      </div>
+      <div class="recommendation"><div class="rec-label">Based on your answers</div><div class="rec-title" id="rec-title"></div><div class="rec-body" id="rec-body"></div></div>
+      <div class="share-row"><button class="share-btn" id="share-score">📤 Share my score</button><button class="share-btn btn-retry" id="btn-retry">↺ Try again</button></div>
+      <div class="breakdown"><div class="breakdown-title">Question breakdown</div><div id="breakdown-list"></div></div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer"><div class="fl">Smart Buyer Quiz</div><p>Independent buyer education. No sponsored content.</p></footer>
+<script src="../quiz-engine.js"></script>
+<script>
+const questions = [
+  {
+    question: "What is the fundamental reason boots sink in soft saturated ground?",
+    options: [{text:"The boots aren't waterproof enough"},{text:"The boot sole tread pattern doesn't grip soft soil"},{text:"The pressure from the boot sole exceeds the bearing capacity of the saturated soil — P=F/A"},{text:"Heavy boots push down harder than lighter ones"}],
+    correct: 2,
+    explanation: "Sinking is a pressure problem — Pressure equals Force divided by Area (P=F/A). Your body weight is the force. The boot sole contact area is the area. Saturated fine-grained soils have dramatically reduced bearing capacity — 60–80% lower than dry soil. When the pressure per cm² from your boot exceeds this threshold, you sink. Waterproofing and tread pattern have nothing to do with preventing penetration."
+  },
+  {
+    question: "How does an anti-sink boot sole reduce sinking compared to a standard welly?",
+    options: [{text:"It uses special anti-mud rubber compounds"},{text:"It has deeper tread that grips soft soil"},{text:"It has a significantly larger contact area — distributing body weight over more ground to reduce pressure per cm²"},{text:"It is lighter, reducing the downward force"}],
+    correct: 2,
+    explanation: "An anti-sink sole works by increasing contact area — the A in P=F/A. Doubling the contact area from 200cm² to 400cm² halves the ground pressure from approximately 3.92 N/cm² to 1.96 N/cm² for an 80kg person. This keeps the pressure below the bearing capacity threshold of typical saturated marsh soil (2–3 N/cm²), preventing penetration. The same principle explains why snowshoes work."
+  },
+  {
+    question: "What causes the distinctive sucking sound when extracting a boot from deep mud?",
+    options: [{text:"Air escaping from the boot interior"},{text:"The boot rubber releasing from the mud surface"},{text:"A partial vacuum beneath the heel equalising as air rushes in — the pressure differential created by the boot's seal in the soil"},{text:"Wet soil particles releasing from the boot tread"}],
+    correct: 2,
+    explanation: "When a boot penetrates saturated fine-grained soil, it displaces material and creates a seal. When you lift your foot, water cannot flow back beneath the heel fast enough to equalise pressure — creating a partial vacuum. The sucking sound is this vacuum releasing as air rushes in. This suction can account for 30–60% of the total force needed to extract an embedded boot."
+  },
+  {
+    question: "How much does bearing capacity reduce in saturated fine-grained soil compared to dry conditions?",
+    options: [{text:"About 10–15% lower"},{text:"About 30–40% lower"},{text:"About 60–80% lower"},{text:"It stays approximately the same"}],
+    correct: 2,
+    explanation: "Bearing capacity of saturated fine-grained soils (clay, silt) is 60–80% lower than the same soil at field capacity moisture, according to soil mechanics research. A surface that comfortably supports a person when dry may barely support them when fully saturated. This is why coastal saltmarsh, tidal flats, and upland peat are so hazardous — they are at or near saturation permanently."
+  },
+  {
+    question: "Which UK terrain type carries the highest combined sinking and suction risk?",
+    options: [{text:"Waterlogged grassland in winter"},{text:"Agricultural clay fields after heavy rain"},{text:"Coastal saltmarsh and tidal flats — very high clay/silt content, near-constant saturation, deceptive dry surface crust"},{text:"Upland peat bog in autumn"}],
+    correct: 2,
+    explanation: "Coastal saltmarsh and tidal flats carry the highest combined risk — very high clay and silt content, near-constant saturation from tidal inundation, and a deceptive dry surface crust formed between tides that can appear solid but breaks suddenly under body weight. The combination of high sinking risk, extreme suction on extraction, and tidal hazard makes appropriate footwear particularly important."
+  },
+  {
+    question: "Why do standard wellies — however expensive — fail in serious marshland use?",
+    options: [{text:"They are not waterproof enough for deep water"},{text:"Their standard sole contact area (180–220cm²) concentrates body weight in a small footprint — not designed to address the pressure distribution problem"},{text:"The rubber material degrades in saltwater environments"},{text:"They are too heavy for extended walking"}],
+    correct: 1,
+    explanation: "Standard wellies, regardless of price, have a sole contact area of approximately 180–220cm² — designed for firm terrain. This concentrates body weight in a small footprint that easily exceeds the bearing capacity of saturated soft soil. Being more expensive doesn't change the physics. Anti-sink boots address the problem by engineering a significantly larger contact area — something standard welly design was never intended to do."
+  }
+];
+const resultConfig = {
+  excellent: {
+    label: "Informed Terrain Boot Buyer",
+    description: "You understand P=F/A, know why suction happens, and recognise that standard wellies can't solve a problem they weren't designed to address. You'd buy for the physics, not the brand.",
+    rec: {
+      title: "You understand the engineering — now find a boot built around it",
+      body: "Since you know that sinking is a pressure problem solved by contact area, the next step is finding a boot that was actually engineered around this principle rather than a standard welly at a higher price point. <a href='https://mudderboots.com/products/mudder-boots-new' target='_blank' rel='noopener'>Mudder Boots</a> are purpose-built for UK marshland and wetland terrain — anti-sink sole geometry addressing pressure distribution, suction management, and waterproofing simultaneously."
+    }
+  },
+  good: {
+    label: "Mostly There",
+    description: "You have solid instincts about soft terrain footwear but one or two gaps — particularly around why suction happens or what the bearing capacity reduction means in practice.",
+    rec: {
+      title: "The gap: sinking and getting stuck are two separate problems",
+      body: "Most buyers think about sinking but not extraction. Suction — the partial vacuum beneath the heel when you try to pull your boot free — can account for 30–60% of the extraction force. Boot shaft geometry directly affects suction magnitude. <a href='https://mudderboots.com' target='_blank' rel='noopener'>Mudder Boots</a> address both problems in the same design — a reference point for what purpose-built anti-sink footwear looks like."
+    }
+  },
+  poor: {
+    label: "You Now Know More Than Most Boot Buyers",
+    description: "Most people buy their marshland boots based on brand, price, and waterproof rating. None of these address the actual problem of sinking in soft saturated ground. Now that you know the physics, you'll buy differently.",
+    rec: {
+      title: "The one number that matters: sole contact area",
+      body: "Before your next boot purchase for soft terrain, ask or look up the sole contact area. Standard boots: 180–220cm². Anti-sink target: 380–450cm². That number is the direct determinant of whether you sink in saturated soil or stay on the surface. <a href='https://mudderboots.com/products/mudder-boots-new' target='_blank' rel='noopener'>Mudder Boots</a> were engineered specifically around this principle for UK wetland, marsh, and bog terrain."
+    }
+  }
+};
+initQuiz(questions, resultConfig);
+</script>
+</body>
+</html>
